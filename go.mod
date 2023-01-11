@@ -1,4 +1,4 @@
-module github.com/linxlib/gotm_oracle
+module github.com/linxlib/gorm_oracle
 
 go 1.17
 
