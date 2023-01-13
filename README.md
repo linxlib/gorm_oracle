@@ -7,7 +7,7 @@ Gorm原生go的驱动
 
 使用方法参考原仓库
 
-1. 不支持First之类的方法，因为oracle需要使用rownum进行分页
+1. 不支持First之类的方法，因为oracle 11g需要使用rownum进行分页, 如果是oracle 12c以上版本可以尝试
 2. oracle://user:password@ip:port/service
 
 - Update(2023-1-13): 原仓库也已经升级了依赖，可以用回原仓库
