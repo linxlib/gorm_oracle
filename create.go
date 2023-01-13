@@ -3,6 +3,7 @@ package gorm_oracle
 import (
 	"bytes"
 	"database/sql"
+	"github.com/linxlib/gorm_oracle/clauses"
 	"reflect"
 
 	"github.com/thoas/go-funk"
@@ -10,8 +11,6 @@ import (
 	"gorm.io/gorm/callbacks"
 	"gorm.io/gorm/clause"
 	"gorm.io/gorm/schema"
-
-	"github.com/wdrabbit/gorm-oracle/clauses"
 )
 
 func Create(db *gorm.DB) {

@@ -3,9 +3,10 @@ package gorm_oracle
 import (
 	"database/sql"
 	"fmt"
+	"github.com/linxlib/gorm_oracle/clauses"
 	_ "github.com/sijms/go-ora/v2"
 	"github.com/thoas/go-funk"
-	"github.com/wdrabbit/gorm-oracle/clauses"
+
 	"gorm.io/gorm"
 	"gorm.io/gorm/callbacks"
 	"gorm.io/gorm/clause"
@@ -169,9 +170,9 @@ func (d Dialector) RewriteLimit(c clause.Clause, builder clause.Builder) {
 			builder.WriteString(strconv.Itoa(offset))
 			builder.WriteString(" ROWS")
 		}
-		if limit := limit.Limit; limit > 0 {
+		if limit := limit.Limit; limit != nil && *limit > 0 {
 			builder.WriteString(" FETCH NEXT ")
-			builder.WriteString(strconv.Itoa(limit))
+			builder.WriteString(strconv.Itoa(*limit))
 			builder.WriteString(" ROWS ONLY")
 		}
 	}
